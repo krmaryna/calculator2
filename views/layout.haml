@@ -1,0 +1,32 @@
+﻿!!!
+%html
+	%head
+		%title My Sinatra Website
+
+	%body
+		#wrapper
+			%h1 Кредитний калькулятор
+			
+			%div 
+				=yield
+				
+				%form{ :action => "/", :method => "post"}
+
+					%ol
+						%li
+							%p Процентна ставка:
+							%input{:type => "text", :name => "percent"}
+						%li
+							%p Сума кредиту:
+							%input{:type => "text", :name => "sum"}
+						%li
+							%p Термін кредиту в місяцях:
+							%input{:type => "text", :name => "period"}
+						%li 
+							Метод погашення кредиту
+							%p
+							%input{:type => "radio", :name => "method", :value => "standard", :checked => "checked"} Стандартний
+							%p
+							%input{:type => "radio", :name => "method", :value => "equal"} Рівними частинами
+					%input{:type => "submit", :value => "Розрахувати"}
+			
